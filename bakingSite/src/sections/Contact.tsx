@@ -30,13 +30,13 @@ const buildWhatsAppMessage = (form: {
   date: string;
 }) => {
   const lines = [
-    `🧁 *New Order — Gee Pastries*`,
+    `*New Order — Gee Pastries*`,
     ``,
-    `👤 *Name:* ${form.name}`,
-    `📞 *Phone:* ${form.phone}`,
-    `🎂 *Order Type:* ${form.orderType || "Not specified"}`,
-    `📅 *Required Date:* ${form.date || "Not specified"}`,
-    `📝 *Details:*`,
+    `*Name:* ${form.name}`,
+    `*Phone:* ${form.phone}`,
+    `*Order Type:* ${form.orderType || "Not specified"}`,
+    `*Required Date:* ${form.date || "Not specified"}`,
+    `*Details:*`,
     form.details,
   ];
   return encodeURIComponent(lines.join("\n"));
