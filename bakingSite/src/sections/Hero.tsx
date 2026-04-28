@@ -4,12 +4,14 @@ import heroImg from "../assets/heroImg.jpg";
 
 const Hero: React.FC = () => {
   const [loaded, setLoaded] = useState(false);
+  const [imgLoaded, setImgLoaded] = useState(false);
+
   useEffect(() => { const t = setTimeout(() => setLoaded(true), 100); return () => clearTimeout(t); }, []);
 
   return (
     <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-cream">
 
-      {/* Decorative blush circles — purely visual, desktop only */}
+      {/* Decorative blush circles */}
       <div className="absolute top-0 right-0 w-64 h-64 md:w-[32rem] md:h-[32rem] rounded-full bg-blush-light/40 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-48 h-48 md:w-72 md:h-72 rounded-full bg-cream-dark/60 translate-y-1/3 -translate-x-1/3 pointer-events-none" />
 
@@ -50,26 +52,54 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Visual card — hidden on smallest, shown sm+ */}
+          {/* Hero image — hidden on mobile, visible sm+ */}
           <div className={`hidden sm:block flex-shrink-0 transition-all duration-1000 delay-400 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-              {/* Outer ring */}
-            <div className="absolute inset-0 rounded-full border-2 border-dashed border-blush/40 animate-float" />
-                {/* Inner card */}
-                <div className="absolute inset-6 rounded-full overflow-hidden shadow-xl border border-cream-mid">
-                    <img
-                        src={heroImg}
-                        alt="Fresh pastry"
-                        className="w-full h-full object-cover"
-                    />
-                    </div>
-                                    {/* Floating tags */}
-                <div className="absolute top-4 -right-4 bg-white rounded-2xl px-3 py-2 shadow-md border border-cream-dark animate-float" style={{ animationDelay: "0.5s" }}>
-                    <p className="font-body text-xs text-espresso font-semibold">⭐ 4.9 Rating</p>
-                </div>
-                <div className="absolute bottom-6 -left-5 bg-blush-pale rounded-2xl px-3 py-2 shadow-md border border-blush/30 animate-float" style={{ animationDelay: "1.2s" }}>
-                    <p className="font-body text-xs text-espresso font-semibold">Fresh Daily</p>
-                </div>
+
+              {/* Outer dashed ring */}
+              <div className="absolute inset-0 rounded-full border-2 border-dashed border-blush/40 animate-float" />
+
+              {/* Image circle */}
+              <div className="absolute inset-6 rounded-full overflow-hidden shadow-xl border border-cream-mid bg-cream-dark">
+
+                {/* Shimmer skeleton — sits behind image, fades out when loaded */}
+                <div
+                  className={`absolute inset-0 transition-opacity duration-500 ${imgLoaded ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+                  style={{
+                    background: "linear-gradient(90deg, #E8DDD0 25%, #F0EAE0 50%, #E8DDD0 75%)",
+                    backgroundSize: "200% 100%",
+                    animation: imgLoaded ? "none" : "shimmer 1.5s infinite",
+                  }}
+                />
+
+                {/* Actual image */}
+                <img
+                  src={heroImg}
+                  alt="Fresh pastry"
+                  onLoad={() => setImgLoaded(true)}
+                  className={`w-full h-full object-cover transition-all duration-700 ${
+                    imgLoaded ? "opacity-100 blur-0 scale-100" : "opacity-0 blur-sm scale-105"
+                  }`}
+                />
+              </div>
+
+              {/* Floating tags — only show once image is ready */}
+              <div
+                className={`absolute top-4 -right-4 bg-white rounded-2xl px-3 py-2 shadow-md border border-cream-dark animate-float transition-all duration-500 ${
+                  imgLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+                }`}
+                style={{ animationDelay: "0.5s" }}
+              >
+                <p className="font-body text-xs text-espresso font-semibold">⭐ 4.9 Rating</p>
+              </div>
+              <div
+                className={`absolute bottom-6 -left-5 bg-blush-pale rounded-2xl px-3 py-2 shadow-md border border-blush/30 animate-float transition-all duration-500 delay-100 ${
+                  imgLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+                }`}
+                style={{ animationDelay: "1.2s" }}
+              >
+                <p className="font-body text-xs text-espresso font-semibold">🥐 Fresh Daily</p>
+              </div>
             </div>
           </div>
         </div>
