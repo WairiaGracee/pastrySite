@@ -5,7 +5,7 @@ const Footer: React.FC = () => (
     <div className="max-w-7xl mx-auto px-5">
       <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
         <div>
-          <p className="font-display text-2xl font-semibold">SweetCrumb</p>
+          <p className="font-display text-2xl font-semibold">Gee~Pastries</p>
           <p className="font-body text-xs text-cream/40 tracking-widest uppercase mt-0.5">Artisan Bakery · Nairobi</p>
         </div>
         <nav className="flex flex-wrap justify-center gap-5">
@@ -26,7 +26,7 @@ const Footer: React.FC = () => (
         </div>
       </div>
       <div className="mt-8 pt-5 border-t border-espresso-soft/20 text-center">
-        <p className="font-body text-xs text-cream/25">© {new Date().getFullYear()} SweetCrumb Bakery. All rights reserved.</p>
+        <p className="font-body text-xs text-cream/25">© {new Date().getFullYear()} Gee Pastries. All rights reserved.</p>
       </div>
     </div>
   </footer>

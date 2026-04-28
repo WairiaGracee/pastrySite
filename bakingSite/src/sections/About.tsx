@@ -25,7 +25,7 @@ const About: React.FC = () => {
               <span className="italic text-blush">with intention."</span>
             </p>
             <p className="font-body text-espresso/60 text-sm leading-relaxed">
-              Founded in 2019 out of a tiny home kitchen, SweetCrumb grew from weekend sourdough experiments into a full artisan bakery trusted by hundreds of families across Nairobi.
+              Founded in 2019 out of a tiny home kitchen, geePastries grew from weekend sourdough experiments into a full artisan bakery trusted by hundreds of families across Nairobi.
             </p>
           </div>
 

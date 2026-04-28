@@ -23,7 +23,7 @@ const WhyUs: React.FC = () => {
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-5">
         {/* Header */}
         <div className={`text-center mb-12 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <p className="font-body text-xs text-blush uppercase tracking-widest mb-3">— Why SweetCrumb</p>
+          <p className="font-body text-xs text-blush uppercase tracking-widest mb-3">— Why geePastries</p>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-semibold text-cream leading-tight">
             More than a bakery.<br />
             <span className="italic text-blush">A tradition.</span>
