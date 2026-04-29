@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ChevronDown, Sparkles } from "lucide-react";
-import heroImg from "../assets/heroImg.jpg";
+import heroImg from "../assets/heroImg.webp";
 
 const Hero: React.FC = () => {
   const [loaded, setLoaded] = useState(false);

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
-import sourdough from "../assets/sourdough.jpg";
-import foccacia from "../assets/Foccacia.jpg";
-import lemonTart from "../assets/lemonTart.jpg";
-import croissant from "../assets/butterCroissant.jpg";
-import celebrationCake from "../assets/celebrationCake.jpg";
-import carrotCake from "../assets/carrotCake.jpg";
-import brownie from "../assets/brownie.jpg";
-import custom from "../assets/custom.jpg";
+import sourdough from "../assets/sourdough.webp";
+import foccacia from "../assets/Foccacia.webp";
+import lemonTart from "../assets/lemonTart.webp";
+import croissant from "../assets/butterCroissant.webp";
+import celebrationCake from "../assets/celebrationCake.webp";
+import carrotCake from "../assets/carrotCake.webp";
+import brownie from "../assets/brownie.webp";
+import custom from "../assets/custom.webp";
 
 type Category = "All" | "Breads" | "Cakes" | "Pastries" | "Custom";
 
